@@ -1,0 +1,25 @@
+# Applies the four-channel profile and selects the DSP sink after login.
+#
+# WirePlumber restores the card profile it saw last, but on a cold boot it can
+# settle on plain stereo before the filter chain exists -- the stereo profile
+# carries a far higher priority. This service puts the card back on
+# analog-surround-40 and points the default output at the filter sink.
+[Unit]
+Description=iMac A2115 speaker DSP setup
+After=pipewire.service wireplumber.service pipewire-pulse.service
+Wants=pipewire.service wireplumber.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+# PipeWire needs a moment after login before pactl can reach it. Raise this if
+# the service lands before the card appears on a slow machine.
+ExecStartPre=/bin/sleep 4
+ExecStart=/bin/bash -c '\
+  pactl set-card-profile alsa_card.pci-0000_00_1f.3 output:analog-surround-40+input:analog-stereo && \
+  sleep 1 && \
+  pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-surround-40 100%% && \
+  pactl set-default-sink imac_speakers'
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,25 @@
+#!/bin/bash
+# Reload the Wi-Fi driver on resume.
+#
+# The BCM4364 does not come back from a suspend: the interface is still there
+# and the firmware reports no crash, but the radio is deaf -- a scan returns
+# nothing and NetworkManager sits at "disconnected". Two
+# "brcmf_cfg80211_add_iface ... failed" lines per resume are the tell.
+#
+# Unlike the HDA codec, brcmfmac unloads cleanly, so a reload is all it takes
+# and NetworkManager reconnects to the saved network by itself.
+#
+# Installed as /usr/lib/systemd/system-sleep/50-imac-wifi (mode 0755).
+[ "$1" = post ] || exit 0
+
+logger -t imac-wifi-sleep "resume: reloading brcmfmac"
+
+modprobe -r brcmfmac_wcc 2>/dev/null
+if ! modprobe -r brcmfmac 2>/dev/null; then
+    logger -t imac-wifi-sleep "brcmfmac is busy, leaving it alone"
+    exit 0
+fi
+
+sleep 2
+modprobe brcmfmac
+logger -t imac-wifi-sleep "resume: brcmfmac reloaded"

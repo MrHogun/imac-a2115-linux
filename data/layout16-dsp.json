@@ -1,0 +1,929 @@
+{
+ "layout_id": 16,
+ "path_map_id": 64,
+ "amplifiers": [
+  {
+   "device": "0x4283",
+   "i2c_address": "0x48"
+  },
+  {
+   "device": "0x5764",
+   "i2c_address": "0x6c"
+  },
+  {
+   "device": "0x5764",
+   "i2c_address": "0x6d"
+  },
+  {
+   "device": "0x5764",
+   "i2c_address": "0x6e"
+  },
+  {
+   "device": "0x5764",
+   "i2c_address": "0x6f"
+  }
+ ],
+ "chain": [
+  {
+   "function": "DspFunction0",
+   "name": "DspEqualization32",
+   "instance": 0,
+   "inputs": {},
+   "sections": [
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 60.2989,
+     "q": 0.80852,
+     "gain_db": -1.8462
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 59.4988,
+     "q": 0.82046,
+     "gain_db": -1.7188
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 4381.9971,
+     "q": 1.43836,
+     "gain_db": 1.5915
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 8075.9561,
+     "q": 3.74057,
+     "gain_db": -4.0106
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 980.4248,
+     "q": 1.16271,
+     "gain_db": -5.7931
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 319.7603,
+     "q": 1.90826,
+     "gain_db": -4.2653
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2128.9983,
+     "q": 5.08569,
+     "gain_db": -5.2838
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 215.1353,
+     "q": 1.11297,
+     "gain_db": -6.4297
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1447.8185,
+     "q": 4.20052,
+     "gain_db": -4.7745
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 197.4686,
+     "q": 2.38102,
+     "gain_db": -2.3554
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 604.7846,
+     "q": 3.87614,
+     "gain_db": -5.1565
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 777.8854,
+     "q": 2.49483,
+     "gain_db": -2.1008
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 60.2989,
+     "q": 0.80852,
+     "gain_db": -1.8462
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 59.4988,
+     "q": 0.82046,
+     "gain_db": -1.7188
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 4381.9971,
+     "q": 1.43836,
+     "gain_db": 1.5915
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 8075.9561,
+     "q": 3.74057,
+     "gain_db": -4.0106
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 980.4248,
+     "q": 1.16271,
+     "gain_db": -5.7931
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 319.7603,
+     "q": 1.90826,
+     "gain_db": -4.2653
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2128.9983,
+     "q": 5.08569,
+     "gain_db": -5.2838
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 215.1353,
+     "q": 1.11297,
+     "gain_db": -6.4297
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1447.8185,
+     "q": 4.20052,
+     "gain_db": -4.7745
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 197.4686,
+     "q": 2.38102,
+     "gain_db": -2.3554
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 604.7846,
+     "q": 3.87614,
+     "gain_db": -5.1565
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 777.8854,
+     "q": 2.49483,
+     "gain_db": -2.1008
+    }
+   ]
+  },
+  {
+   "function": "DspFunction1",
+   "name": "DspMozartCompressor",
+   "instance": 1,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 0,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 0,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "10": 1500.0,
+    "2": -22.0,
+    "15": 0.0,
+    "3": 3.8000001907348633,
+    "11": 3.0,
+    "4": 1.401298464324817e-45,
+    "5": 0.0,
+    "12": 0.0,
+    "6": -57.29999923706055,
+    "13": 5.0,
+    "7": 2.0,
+    "8": 0.0,
+    "14": 7.2046661376953125,
+    "1": 0.0,
+    "9": 50.0
+   }
+  },
+  {
+   "function": "DspFunction2",
+   "name": "DspLoudness",
+   "instance": 2,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 1,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 1,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "10": 1714.4906005859375,
+    "2": 0.0,
+    "15": -120.0,
+    "3": 0.0,
+    "11": 2000.0,
+    "16": -46.431434631347656,
+    "4": 0.0,
+    "5": 0.0,
+    "12": 0.5,
+    "17": -1.0,
+    "13": 0.5,
+    "14": -1.2038764953613281,
+    "1": 0.0
+   }
+  },
+  {
+   "function": "DspFunction3",
+   "name": "DspMozartCompressorDualBand",
+   "instance": 3,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 2,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 2,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "18": 1.401298464324817e-45,
+    "10": 1000.0,
+    "19": 1.401298464324817e-45,
+    "11": -0.20000000298023224,
+    "12": 1.0,
+    "1": 0.0,
+    "20": 1.401298464324817e-45,
+    "2": 350.0,
+    "13": 16.399999618530273,
+    "3": 8.0,
+    "21": 0.0,
+    "14": -23.5,
+    "4": -5.800000190734863,
+    "5": 2.5,
+    "15": 7.0,
+    "6": 30.0,
+    "16": 75.0,
+    "7": -16.899999618530273,
+    "8": 1.0,
+    "17": 1000.0,
+    "9": 10.0
+   }
+  },
+  {
+   "function": "DspFunction4",
+   "name": "DspGainStage",
+   "instance": 4,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 3,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 3,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "1": 0.0,
+    "2": 0.5638801455497742,
+    "3": 0.5623413324356079
+   }
+  },
+  {
+   "function": "DspFunction5",
+   "name": "Dsp2To4Splitter",
+   "instance": 5,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 4,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 4,
+     "from_port": 1
+    }
+   },
+   "params": {}
+  },
+  {
+   "function": "DspFunction6",
+   "name": "DspGainStage",
+   "instance": 6,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 5,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 5,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "1": 0.0,
+    "2": 1.004195213317871,
+    "3": 0.9980646371841431
+   }
+  },
+  {
+   "function": "DspFunction7",
+   "name": "DspGainStage",
+   "instance": 7,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 5,
+     "from_port": 2
+    },
+    "InputPort1": {
+     "from_instance": 5,
+     "from_port": 3
+    }
+   },
+   "params": {
+    "1": 0.0,
+    "2": 0.7469170093536377,
+    "3": 0.7425627708435059
+   }
+  },
+  {
+   "function": "DspFunction8",
+   "name": "DspEqualization32",
+   "instance": 8,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 6,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 6,
+     "from_port": 1
+    }
+   },
+   "sections": [
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 998.9474,
+     "q": 0.76483,
+     "gain_db": -4.3926
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 233.1499,
+     "q": 2.29189,
+     "gain_db": -7.7029
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 546.9199,
+     "q": 2.17715,
+     "gain_db": -8.8488
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2499.3406,
+     "q": 9.15743,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 928.2496,
+     "q": 3.46162,
+     "gain_db": -3.5013
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 187.515,
+     "q": 2.62177,
+     "gain_db": -2.7374
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 424.712,
+     "q": 4.70052,
+     "gain_db": 4.3926
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1933.3479,
+     "q": 16.53523,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1293.8124,
+     "q": 3.70451,
+     "gain_db": 2.7374
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2514.9819,
+     "q": 11.77451,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2995.0095,
+     "q": 11.3419,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 3478.7559,
+     "q": 9.83146,
+     "gain_db": -24.0
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1379.6898,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1394.5469,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1394.5469,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 998.9474,
+     "q": 0.76483,
+     "gain_db": -4.3926
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 336.5911,
+     "q": 2.4817,
+     "gain_db": -10.6313
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 188.6856,
+     "q": 2.69311,
+     "gain_db": -4.5199
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2499.3406,
+     "q": 9.15743,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 448.0775,
+     "q": 8.07604,
+     "gain_db": -3.756
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 641.4675,
+     "q": 7.53877,
+     "gain_db": -3.2467
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1197.0586,
+     "q": 2.36592,
+     "gain_db": -2.4828
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 875.1536,
+     "q": 7.48487,
+     "gain_db": -5.7931
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1933.3479,
+     "q": 16.53523,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1293.8124,
+     "q": 3.70451,
+     "gain_db": 2.7374
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2514.9819,
+     "q": 11.77451,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2995.0095,
+     "q": 11.3419,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 3478.7559,
+     "q": 9.83146,
+     "gain_db": -24.0
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1379.6898,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1394.5469,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    },
+    {
+     "type": 0,
+     "kind": "lowpass",
+     "freq_hz": 1394.5469,
+     "q": 0.99537,
+     "gain_db": -0.0403
+    }
+   ]
+  },
+  {
+   "function": "DspFunction9",
+   "name": "DspEqualization32",
+   "instance": 9,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 7,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 7,
+     "from_port": 1
+    }
+   },
+   "sections": [
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 2999.3679,
+     "q": 0.82065,
+     "gain_db": -1.7169
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 2983.3479,
+     "q": 0.8174,
+     "gain_db": -1.7514
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1017.8195,
+     "q": 8.26717,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2369.6941,
+     "q": 2.21538,
+     "gain_db": -10.3767
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 4005.2114,
+     "q": 2.02337,
+     "gain_db": -13.9416
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1181.2229,
+     "q": 13.08903,
+     "gain_db": -15.7241
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 6017.1411,
+     "q": 2.03628,
+     "gain_db": -1.4642
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1996.4811,
+     "q": 3.5466,
+     "gain_db": 6.1751
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1872.2113,
+     "q": 2.97587,
+     "gain_db": 6.0477
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 12136.0254,
+     "q": 3.58737,
+     "gain_db": -7.1936
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 2999.3679,
+     "q": 0.82065,
+     "gain_db": -1.7169
+    },
+    {
+     "type": 1,
+     "kind": "highpass",
+     "freq_hz": 2983.3479,
+     "q": 0.8174,
+     "gain_db": -1.7514
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1017.8195,
+     "q": 8.26717,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 3338.4639,
+     "q": 2.62262,
+     "gain_db": -17.252
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1204.55,
+     "q": 11.70114,
+     "gain_db": -24.0
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 3598.3921,
+     "q": 5.68624,
+     "gain_db": -2.4828
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1996.4811,
+     "q": 3.5466,
+     "gain_db": 6.1751
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 2447.0759,
+     "q": 6.30921,
+     "gain_db": -12.1592
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 1872.2113,
+     "q": 2.97587,
+     "gain_db": 6.0477
+    },
+    {
+     "type": 4,
+     "kind": "peaking",
+     "freq_hz": 12136.0254,
+     "q": 3.58737,
+     "gain_db": -7.1936
+    }
+   ]
+  },
+  {
+   "function": "DspFunction10",
+   "name": "DspBuzzKill",
+   "instance": 10,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 8,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 8,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "3": 0.0,
+    "12": 1.0,
+    "21": 298.67144775390625,
+    "4": 0.0,
+    "30": 0.0,
+    "13": 164.8414306640625,
+    "5": 50.13057327270508,
+    "22": -7.612762451171875,
+    "6": -15.816413879394531,
+    "31": 1.0,
+    "14": -3.4531173706054688,
+    "7": 5.700904846191406,
+    "23": 3.1804771423339844,
+    "40": 0.0,
+    "32": 0.0,
+    "15": 1.769856333732605,
+    "8": 1.0,
+    "24": 0.0,
+    "9": 92.58895111083984,
+    "33": 5000.0,
+    "16": 1.0,
+    "41": 10000.0,
+    "25": 1000.0,
+    "42": 0.0,
+    "34": 0.0,
+    "17": 451.4538879394531,
+    "43": 1.0,
+    "26": 0.0,
+    "35": 1.0,
+    "18": -3.8563919067382812,
+    "44": 1.1210387714598537e-44,
+    "27": 1.0,
+    "36": 0.0,
+    "19": 0.9658317565917969,
+    "28": 0.0,
+    "37": 10000.0,
+    "29": 2000.0,
+    "38": 0.0,
+    "39": 1.0,
+    "10": -7.532585144042969,
+    "1": 0.0,
+    "11": 1.346698522567749,
+    "2": -3.0528182983398438,
+    "20": 1.0
+   }
+  },
+  {
+   "function": "DspFunction11",
+   "name": "DspDelay",
+   "instance": 11,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 9,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 9,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "1": 0.0,
+    "2": 1.1210387714598537e-44
+   }
+  },
+  {
+   "function": "DspFunction12",
+   "name": "DspControlFreak4ch",
+   "instance": 12,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 11,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 11,
+     "from_port": 1
+    },
+    "InputPort2": {
+     "from_instance": 10,
+     "from_port": 0
+    },
+    "InputPort3": {
+     "from_instance": 10,
+     "from_port": 1
+    }
+   },
+   "params": {
+    "7": 0.0,
+    "3": -1.0,
+    "8": 0.0,
+    "4": 10.0,
+    "9": 0.0,
+    "5": 10.0,
+    "1": 0.0,
+    "6": 0.0,
+    "2": 0.0
+   }
+  },
+  {
+   "function": "DspFunction13",
+   "name": "Dsp4ChOutput",
+   "instance": 13,
+   "inputs": {
+    "InputPort0": {
+     "from_instance": 12,
+     "from_port": 0
+    },
+    "InputPort1": {
+     "from_instance": 12,
+     "from_port": 1
+    },
+    "InputPort2": {
+     "from_instance": 12,
+     "from_port": 2
+    },
+    "InputPort3": {
+     "from_instance": 12,
+     "from_port": 3
+    }
+   },
+   "params": {
+    "10": 0.0,
+    "2": 0.0,
+    "15": -0.19952082633972168,
+    "3": 0.0,
+    "11": 0.0,
+    "4": 0.0,
+    "16": 0.0,
+    "5": 0.0,
+    "12": 0.0,
+    "17": 0.0,
+    "6": 0.0,
+    "13": 0.0,
+    "7": 0.0,
+    "18": 1.0,
+    "8": 0.0,
+    "14": -0.18444323539733887,
+    "1": 0.0,
+    "9": 0.0
+   }
+  }
+ ],
+ "source": "layout16.xml"
+}
