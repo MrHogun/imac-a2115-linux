@@ -11,6 +11,7 @@ Everything this machine gets wrong under Linux, and the fixes, in one place.
 | **Speakers** | four drivers fed one full-range signal, no crossover | Apple's own tuning |
 | **Audio after suspend** | silent until a reboot | works |
 | **Wi-Fi after suspend** | radio deaf until a reload | works |
+| **Bluetooth** | runs unpatched, sees few devices | unsolved — see below |
 
 The speaker tuning is not a fit by ear: the crossover frequencies, filter curves
 and gain structure were read out of macOS, from the DSP chain Apple's own driver
@@ -191,6 +192,57 @@ codec, `brcmfmac` unloads cleanly, so
 NetworkManager reconnects by itself.
 
 ---
+
+## Bluetooth — not solved
+
+Bluetooth works enough to pair a keyboard and no further. The controller runs in
+manufacturing mode on its ROM, because the patch firmware it wants is missing:
+
+```
+Bluetooth: hci0: BCM4364B0 Ekans Olympic (MFG)
+Bluetooth: hci0: BCM: firmware Patch file not found, tried: 'brcm/BCM.hcd'
+Bluetooth: hci0: BCM: failed to write update baudrate (-16)
+```
+
+Unpatched, it returns malformed advertising reports — `unknown advertising packet
+type: 0x13 / 0x20 / 0x24`, none of which exist in the spec, where only 0x00–0x04
+do. The kernel discards them, which is why most nearby devices never appear.
+
+**What is known.** The firmware does exist, in macOS, at
+`/usr/share/firmware/bluetooth/`: `BCM4364B0-MiniDriver-uart.hex` and
+`BCM4364B0ID1-Updater.hex` / `ID2` — Intel HEX, while Linux wants a `.hcd`.
+[`tools/hex2hcd.py`](tools/hex2hcd.py) converts between them: it decodes the HEX
+and emits the Write_RAM (`0xFC4C`) and Launch_RAM (`0xFC4E`) command stream that
+`btbcm` replays. Nobody else publishes a `.hcd` for this part — the community
+`broadcom-bt-firmware` collection has 130 files and none for BCM4364, the
+`apple-bcm-firmware` package is Wi-Fi only, and the t2linux firmware script
+handles Bluetooth only for the three PCIe models (MacBookPro15,4 / 16,3,
+MacBookAir9,1), matching `.bin` names this chip does not have.
+
+**Where it stops.** With the converted file in place the chip accepts the patch —
+the `Patch command fc4c failed` rejection goes away — and then disappears:
+
+```
+Bluetooth: hci0: BCM: failed to write update baudrate (-110)
+Bluetooth: hci0: BCM: Reset failed (-110)
+```
+
+After patching, these controllers switch UART speed and the driver has to follow.
+It cannot here, and the reason predates the experiment: `failed to write update
+baudrate` is in the log on a stock system too, along with
+
+```
+hci_uart_bcm serial0-0: Unexpected ACPI gpio_int_idx: -1
+hci_uart_bcm serial0-0: No reset resource, using default baud rate
+```
+
+`hci_uart_bcm` finds neither an interrupt line, nor a reset line, nor a baud rate
+in ACPI, and proceeds on defaults. Unpatched that is survivable; patched it is not.
+
+So this needs driver work — UART speeds and ACPI power handling — not a firmware
+file. The converter and this account are here so the next person starts from the
+far side of a day's work. `tools/hex2hcd.py` is written to be generally useful for
+any Broadcom UART part whose firmware is only shipped as Intel HEX.
 
 ## Verifying
 
